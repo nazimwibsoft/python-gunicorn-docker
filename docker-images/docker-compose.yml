@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  app:
+    image: django-gunicorn-server:v0
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./app:/app
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - APPLICATION_MODULE=main:application
